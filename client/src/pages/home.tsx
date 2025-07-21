@@ -9,7 +9,101 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import type { Class, Activity, Seminar, Reflection } from "@shared/schema";
+
+// Dados estáticos para GitHub Pages
+const staticClasses = [
+  {
+    id: 1,
+    date: "2025-03-31",
+    title: "Introdução à Capoeira Angola",
+    description: "Primeira aula sobre os fundamentos históricos e culturais da Capoeira Angola, abordando suas origens africanas e desenvolvimento no Brasil.",
+    type: "teoria",
+    topics: ["História da Capoeira", "Capoeira Angola vs Regional", "Mestres históricos"]
+  },
+  {
+    id: 2,
+    date: "2025-04-02",
+    title: "Movimentos Básicos e Ginga",
+    description: "Prática dos movimentos fundamentais da capoeira, com foco na ginga como movimento base e primeiras esquivas.",
+    type: "prática",
+    topics: ["Ginga", "Cocorinha", "Negativa", "Esquivas básicas"]
+  },
+  {
+    id: 3,
+    date: "2025-04-07",
+    title: "Instrumentos e Musicalidade",
+    description: "Aprendizado sobre os instrumentos da capoeira, especialmente o berimbau, e sua importância na roda.",
+    type: "música",
+    topics: ["Berimbau", "Pandeiro", "Atabaque", "Cantigas tradicionais"]
+  },
+  {
+    id: 4,
+    date: "2025-04-09",
+    title: "Roda de Capoeira",
+    description: "Primeira experiência prática em roda, aplicando os conhecimentos adquiridos nas aulas anteriores.",
+    type: "prática",
+    topics: ["Protocolo da roda", "Interação entre capoeiristas", "Energia e fluxo"]
+  }
+];
+
+const staticActivities = [
+  {
+    id: 1,
+    title: "Visita ao Museu Afro-Brasileiro",
+    description: "Atividade complementar para compreender o contexto histórico e cultural da capoeira.",
+    date: "2025-04-15",
+    type: "cultural",
+    imageUrl: "/image5.jpeg"
+  },
+  {
+    id: 2,
+    title: "Workshop de Confecção de Instrumentos",
+    description: "Aprendizado prático sobre como construir e manter instrumentos tradicionais da capoeira.",
+    date: "2025-04-20",
+    type: "prático",
+    imageUrl: "/image6.jpeg"
+  }
+];
+
+const staticSeminars = [
+  {
+    id: 1,
+    title: "Capoeira e Resistência Cultural",
+    speaker: "Mestre João",
+    date: "2025-04-25",
+    description: "Seminário sobre o papel da capoeira como forma de resistência e preservação cultural.",
+    groupNumber: 1,
+    topic: "Resistência Cultural",
+    members: ["Ana Silva", "Carlos Santos", "Maria Oliveira"]
+  },
+  {
+    id: 2,
+    title: "Tradições Musicais da Capoeira",
+    speaker: "Contramestre Pedro",
+    date: "2025-05-02",
+    description: "Exploração profunda da musicalidade e instrumentos tradicionais da capoeira.",
+    groupNumber: 2,
+    topic: "Musicalidade",
+    members: ["João Costa", "Fernanda Lima", "Roberto Alves"]
+  }
+];
+
+const staticReflections = [
+  {
+    id: 1,
+    title: "Reflexão sobre Identidade Cultural",
+    content: "A capoeira me fez compreender melhor a riqueza da cultura afro-brasileira e sua importância na formação da identidade nacional.",
+    date: "2025-04-10",
+    author: "Estudante"
+  },
+  {
+    id: 2,
+    title: "Movimento e Filosofia",
+    content: "Descobri que a capoeira vai além dos movimentos físicos - é uma filosofia de vida que ensina respeito, disciplina e comunidade.",
+    date: "2025-04-12",
+    author: "Estudante"
+  }
+];
 
 export default function Home() {
   const [selectedImage, setSelectedImage] = useState<{
@@ -18,21 +112,11 @@ export default function Home() {
     description: string;
   } | null>(null);
 
-  const { data: classes = [] } = useQuery<Class[]>({
-    queryKey: ["/api/classes"],
-  });
-
-  const { data: activities = [] } = useQuery<Activity[]>({
-    queryKey: ["/api/activities"],
-  });
-
-  const { data: seminars = [] } = useQuery<Seminar[]>({
-    queryKey: ["/api/seminars"],
-  });
-
-  const { data: reflections = [] } = useQuery<Reflection[]>({
-    queryKey: ["/api/reflections"],
-  });
+  // Usar dados estáticos em vez de queries para GitHub Pages
+  const classes = staticClasses;
+  const activities = staticActivities;
+  const seminars = staticSeminars;
+  const reflections = staticReflections;
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -124,7 +208,7 @@ export default function Home() {
               <Card className="hover:shadow-lg transition-shadow">
                 <div className="relative">
                   <img 
-                    src={"/src/public/image1.jpg"}
+                    src={"/image1.jpg"}
                     alt="Quilombos e Escravidão"
                     className="w-full h-48 object-cover rounded-t-lg"
                   />
@@ -144,7 +228,7 @@ export default function Home() {
               <Card className="hover:shadow-lg transition-shadow">
                 <div className="relative">
                   <img 
-                    src={"/src/public/image2.jpg"}
+                    src={"/image2.jpg"}
                     alt="Influência Indígena"
                     className="w-full h-48 object-cover rounded-t-lg"
                   />
@@ -163,7 +247,7 @@ export default function Home() {
               <Card className="hover:shadow-lg transition-shadow">
                 <div className="relative">
                   <img 
-                    src={"/src/public/image3.jpeg"}
+                    src={"/image3.jpeg"}
                     alt="Guerra do Paraguai"
                     className="w-full h-48 object-cover rounded-t-lg"
                   />
@@ -182,7 +266,7 @@ export default function Home() {
               <Card className="hover:shadow-lg transition-shadow">
                 <div className="relative">
                   <img 
-                    src={"/src/public/image4.jpeg"}
+                    src={"/image4.jpeg"}
                     alt="Luiz Gama"
                     className="w-full h-48 object-cover rounded-t-lg"
                   />
