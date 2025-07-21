@@ -70,7 +70,7 @@ export default function Home() {
               </p>
               <div className="flex flex-wrap gap-4">
                 <Badge variant="secondary" className="bg-white bg-opacity-20 text-white">
-                  Março - Junho 2025
+                  Março - Julho 2025
                 </Badge>
                 <Badge variant="secondary" className="bg-white bg-opacity-20 text-white">
                   História & Prática
@@ -79,66 +79,6 @@ export default function Home() {
                   Cultura Brasileira
                 </Badge>
               </div>
-            </div>
-          </motion.section>
-
-          {/* Plano do Curso */}
-          <motion.section 
-            id="plano-curso"
-            className="mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            <SectionHeader 
-              title="Plano do Curso" 
-              icon={<BookOpen className="w-6 h-6" />}
-            />
-            <div className="grid md:grid-cols-3 gap-6">
-              <Card className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="bg-capoeira-yellow rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                    <Calendar className="w-6 h-6 text-white" />
-                  </div>
-                  <CardTitle>1° Momento Avaliativo</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">
-                    Participação nas aulas práticas e teóricas. Maior peso da avaliação, 
-                    enfatizando o envolvimento ativo em todas as atividades.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="bg-capoeira-blue rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                    <Users className="w-6 h-6 text-white" />
-                  </div>
-                  <CardTitle>2° Momento Avaliativo</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">
-                    Seminários de Atualização Científica em Capoeira, apresentações em 
-                    grupos sobre diferentes aspectos da capoeiragem.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="bg-capoeira-green rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                    <Lightbulb className="w-6 h-6 text-white" />
-                  </div>
-                  <CardTitle>3° Momento Avaliativo</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">
-                    Projetos práticos e iniciativas externas, levando a capoeira para 
-                    além da sala de aula e mantendo-a viva na comunidade.
-                  </p>
-                </CardContent>
-              </Card>
             </div>
           </motion.section>
 
@@ -184,7 +124,7 @@ export default function Home() {
               <Card className="hover:shadow-lg transition-shadow">
                 <div className="relative">
                   <img 
-                    src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=300"
+                    src={"/src/public/image1.jpg"}
                     alt="Quilombos e Escravidão"
                     className="w-full h-48 object-cover rounded-t-lg"
                   />
@@ -204,7 +144,7 @@ export default function Home() {
               <Card className="hover:shadow-lg transition-shadow">
                 <div className="relative">
                   <img 
-                    src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=300"
+                    src={"/src/public/image2.jpg"}
                     alt="Influência Indígena"
                     className="w-full h-48 object-cover rounded-t-lg"
                   />
@@ -223,7 +163,7 @@ export default function Home() {
               <Card className="hover:shadow-lg transition-shadow">
                 <div className="relative">
                   <img 
-                    src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=300"
+                    src={"/src/public/image3.jpeg"}
                     alt="Guerra do Paraguai"
                     className="w-full h-48 object-cover rounded-t-lg"
                   />
@@ -242,7 +182,7 @@ export default function Home() {
               <Card className="hover:shadow-lg transition-shadow">
                 <div className="relative">
                   <img 
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=300"
+                    src={"/src/public/image4.jpeg"}
                     alt="Luiz Gama"
                     className="w-full h-48 object-cover rounded-t-lg"
                   />
@@ -312,7 +252,7 @@ export default function Home() {
               title="Fundamentos" 
               icon={<BicepsFlexed className="w-6 h-6" />}
             />
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 gap-6">
               <Card className="text-center hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="bg-yellow-500 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
@@ -325,9 +265,6 @@ export default function Home() {
                     Estilo tradicional, mais próximo ao chão, com movimentos lentos e ritualizados. 
                     Foco na chamada e no jogo de dois.
                   </p>
-                  <Button variant="outline" className="text-capoeira-green border-capoeira-green hover:bg-capoeira-green hover:text-white">
-                    Explorar Angola
-                  </Button>
                 </CardContent>
               </Card>
 
@@ -343,27 +280,6 @@ export default function Home() {
                     Criada por Mestre Bimba, incorpora movimentos de luta e sequências 
                     codificadas. Mais atlética e vertical.
                   </p>
-                  <Button variant="outline" className="text-capoeira-green border-capoeira-green hover:bg-capoeira-green hover:text-white">
-                    Explorar Regional
-                  </Button>
-                </CardContent>
-              </Card>
-
-              <Card className="text-center hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="bg-amber-600 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                    <span className="text-white text-2xl">🔨</span>
-                  </div>
-                  <CardTitle>Artesanato do Berimbau</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 mb-4">
-                    Processo de confecção do berimbau, compreendendo materiais, técnicas 
-                    e significado cultural do instrumento.
-                  </p>
-                  <Button variant="outline" className="text-capoeira-green border-capoeira-green hover:bg-capoeira-green hover:text-white">
-                    Ver Processo
-                  </Button>
                 </CardContent>
               </Card>
             </div>
@@ -560,92 +476,6 @@ export default function Home() {
                 </Card>
               ))}
             </div>
-          </motion.section>
-
-          {/* Plantas na Capoeira */}
-          <motion.section 
-            id="plantas"
-            className="mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-          >
-            <SectionHeader 
-              title="Plantas na Capoeira" 
-              icon={<Sprout className="w-6 h-6" />}
-            />
-            <Card>
-              <CardContent className="p-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <h3 className="text-xl font-semibold mb-4">Cultivo da Cabaça</h3>
-                    <img 
-                      src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300"
-                      alt="Cultivo de cabaças"
-                      className="w-full h-48 object-cover rounded-lg mb-4"
-                    />
-                    <p className="text-gray-600 mb-4">
-                      Processo de cultivo e cuidado da cabaça, planta fundamental para a confecção 
-                      do berimbau e outros instrumentos tradicionais da capoeira.
-                    </p>
-                    <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                      <h4 className="font-semibold text-green-800 mb-2">Etapas do Projeto:</h4>
-                      <ul className="text-sm text-green-700 space-y-1">
-                        <li className="flex items-center gap-2">
-                          <Sprout className="w-4 h-4" />
-                          Germinação das sementes
-                        </li>
-                        <li className="flex items-center gap-2">
-                          <Sprout className="w-4 h-4" />
-                          Transplante das mudas
-                        </li>
-                        <li className="flex items-center gap-2">
-                          <Sprout className="w-4 h-4" />
-                          Cuidados diários
-                        </li>
-                        <li className="flex items-center gap-2">
-                          <Sprout className="w-4 h-4" />
-                          Acompanhamento do crescimento
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold mb-4">Conexão Cultural</h3>
-                    <img 
-                      src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300"
-                      alt="Berimbau tradicional"
-                      className="w-full h-48 object-cover rounded-lg mb-4"
-                    />
-                    <p className="text-gray-600 mb-4">
-                      A experiência prática de cultivar a matéria-prima dos instrumentos fortalece 
-                      a conexão dos estudantes com a tradição e os processos ancestrais da capoeira.
-                    </p>
-                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                      <h4 className="font-semibold text-blue-800 mb-2">Aprendizados:</h4>
-                      <ul className="text-sm text-blue-700 space-y-1">
-                        <li className="flex items-center gap-2">
-                          <span>🤲</span>
-                          Conexão com a natureza
-                        </li>
-                        <li className="flex items-center gap-2">
-                          <span>📚</span>
-                          Tradição ancestral
-                        </li>
-                        <li className="flex items-center gap-2">
-                          <span>🛠️</span>
-                          Processo artesanal
-                        </li>
-                        <li className="flex items-center gap-2">
-                          <span>❤️</span>
-                          Valorização cultural
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
           </motion.section>
 
           {/* Reflexões Pessoais */}

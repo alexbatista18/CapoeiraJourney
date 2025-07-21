@@ -1,6 +1,7 @@
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
+import os from 'os';
 
 const app = express();
 app.use(express.json());
@@ -60,12 +61,30 @@ app.use((req, res, next) => {
   // Other ports are firewalled. Default to 5000 if not specified.
   // this serves both the API and the client.
   // It is the only port that is not firewalled.
-  const port = parseInt(process.env.PORT || '5000', 10);
+  // Configuração de portas e host via variáveis de ambiente
+  const frontendPort = parseInt(process.env.FRONTEND_PORT || '80', 10);
+  const backendPort = parseInt(process.env.BACKEND_PORT || '5050', 10);
+  const host = process.env.SERVER_HOST || '0.0.0.0';
+  const domain = process.env.DOMAIN;
+
   server.listen({
-    port,
-    host: "0.0.0.0",
+    port: backendPort,
+    host,
     reusePort: true,
   }, () => {
-    log(`serving on port ${port}`);
+    const ifaces = os.networkInterfaces();
+    let localIp = 'localhost';
+    for (const dev in ifaces) {
+      for (const details of ifaces[dev]!) {
+        if (details.family === 'IPv4' && !details.internal) {
+          localIp = details.address;
+        }
+      }
+    }
+    let logMsg = `\n---\nServidor iniciado!\n`;
+    if (domain) logMsg += `Domínio: http://${domain}\n`;
+    logMsg += `Local: http://localhost:${backendPort}\n`;
+    logMsg += `Rede: http://${localIp}:${backendPort}\n---\n`;
+    log(logMsg);
   });
 })();

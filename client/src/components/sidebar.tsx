@@ -20,7 +20,6 @@ interface SidebarProps {
 
 const navigationItems = [
   { id: "inicio", label: "Início", icon: Home },
-  { id: "plano-curso", label: "Plano do Curso", icon: GraduationCap },
   { id: "timeline", label: "Timeline das Aulas", icon: Calendar },
   { id: "momentos-historicos", label: "Momentos Históricos", icon: BookOpen },
   { id: "galeria", label: "Atividades Práticas", icon: Images },
@@ -28,7 +27,6 @@ const navigationItems = [
   { id: "metodologias", label: "Metodologias TGfU", icon: Lightbulb },
   { id: "seminarios", label: "Seminários", icon: Users },
   { id: "cultura", label: "Cultura & Folclore", icon: Drum },
-  { id: "plantas", label: "Plantas na Capoeira", icon: Sprout },
   { id: "reflexoes", label: "Reflexões", icon: Lightbulb },
 ];
 

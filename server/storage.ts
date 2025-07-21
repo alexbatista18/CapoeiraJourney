@@ -223,43 +223,29 @@ export class MemStorage implements IStorage {
         title: "Entrega das Sementes de Cabaça",
         description: "Primeira imagem do projeto: entrega das sementes de cabaça aos alunos, marcando o início do processo de cultivo que conecta teoria e prática. Cada estudante recebeu sementes para germinar em casa, compreendendo o ciclo completo desde o plantio até a confecção do berimbau.",
         date: "Início do semestre",
-        imageUrl: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+        imageUrl: "/src/public/image5.jpeg",
         category: "practice"
       },
       {
         title: "Roda de Capoeira na Aula - 21/05",
         description: "Segunda imagem registrada: roda de capoeira realizada em aula no dia 21/05, fechamento do ciclo TGfU com Capoeira Angola. Momento de aplicação prática dos fundamentos aprendidos, com participação ativa de todos os estudantes na roda tradicional.",
         date: "21/05/2025",
-        imageUrl: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+        imageUrl: "/src/public/image6.jpeg",
         category: "practice"
       },
       {
         title: "Cartaz - Roda em Homenagem aos Povos Originários",
         description: "Terceira imagem: divulgação do cartaz para a roda em homenagem ao Dia dos Povos Originários. Evento organizado pelos alunos divididos em 3 grupos como atividade de reposição, reconhecendo a contribuição indígena fundamental na formação da capoeira.",
         date: "19/04/2025",
-        imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+        imageUrl: "/src/public/image7.jpeg",
         category: "event"
       },
       {
         title: "Encontro com Mestre Junior Orca - 12/06",
         description: "Quarta imagem registrada: encontro e homenagem ao Mestre Junior Orca no dia 12/06. Momento especial de conexão com a tradição, fortalecendo os laços com mestres tradicionais e compreendendo a linhagem histórica da capoeira no Rio Grande do Norte.",
         date: "12/06/2025",
-        imageUrl: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+        imageUrl: "/src/public/image8.jpeg",
         category: "event"
-      },
-      {
-        title: "Visita ao Mestre Igor - Capoeira Nacional",
-        description: "Atividade de campo: visita ao espaço do Mestre Igor, da Capoeira Nacional (Angola), para tratativas sobre o formulário do IPHAN e possível registro no Portal da Capoeira. Experiência prática de pesquisa e documentação cultural.",
-        date: "Maio 2025",
-        imageUrl: "https://images.unsplash.com/photo-1493225457124-f18891b9b330?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
-        category: "event"
-      },
-      {
-        title: "Projeto de Extensão - Capoeira do Brasil",
-        description: "Interação com o projeto de extensão Capoeira do Brasil durante as rodas de Capoeira Regional. Exemplo prático de como levar a capoeira para além da sala de aula, mantendo-a viva na comunidade.",
-        date: "28/05/2025",
-        imageUrl: "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
-        category: "practice"
       }
     ];
 
@@ -340,6 +326,10 @@ export class MemStorage implements IStorage {
       {
         title: "Integração entre Angola e Regional",
         content: "Vivenciar tanto a Capoeira Angola quanto a Regional, com suas metodologias específicas (chamadas de pé do berimbau versus sequências de Mestre Bimba), mostrou que ambas são caminhos válidos de preservação cultural. A Angola nos conectou com a ancestralidade e o ritual; a Regional nos ensinou sistematização e pedagogia. Ambas fecharam seus ciclos com rodas, sempre retornando ao jogo como elemento central."
+      },
+      {
+        title: "História, Quilombos e Legado da Capoeira",
+        content: "Durante o semestre, aprofundei meus conhecimentos sobre a história do Brasil, especialmente sobre os quilombos e a capoeira. Compreendi a importância de conhecer esse passado, de enxergar os traços e o legado deixado por essas comunidades de resistência, e como tudo isso se reflete na cultura e na sociedade atual. Esse aprendizado me fez valorizar ainda mais a capoeira como expressão viva de luta, identidade e transformação social."
       }
     ];
 
