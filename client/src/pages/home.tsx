@@ -11,7 +11,6 @@ import {
 } from "lucide-react";
 // ...existing code...
 import SimpleTimelineCard from "../components/simple-timeline-card";
-import ImageModal from "../components/CapoeiraJourney/image-modal";
 import SectionHeader from "../components/section-header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -23,6 +22,7 @@ import {
   allSeminars,
   allReflections,
 } from "@/lib/staticData";
+import ImageModal from "@/components/image-modal";
 
 export default function Home() {
   const [selectedImage, setSelectedImage] = useState<{
