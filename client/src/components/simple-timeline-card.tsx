@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+// framer-motion removido
 import { Calendar, MapPin, ChevronDown, ChevronUp } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -89,14 +89,10 @@ export default function SimpleTimelineCard({
   location,
   isLeft,
 }: SimpleTimelineCardProps) {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const shouldShowButton = description.length > 300;
+  // Sempre expandido, sem botão de ver mais/menos
 
   return (
-    <motion.div
-      initial={{ opacity: 0, x: isLeft ? -50 : 50 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.6 }}
+    <div
       className={`flex items-center ${
         isLeft ? "lg:flex-row" : "lg:flex-row-reverse"
       } mb-8`}
@@ -126,32 +122,7 @@ export default function SimpleTimelineCard({
           )}
         </CardHeader>
         <CardContent>
-          <p
-            className={`text-gray-700 mb-4 leading-relaxed ${
-              !isExpanded && shouldShowButton ? "line-clamp-3" : ""
-            }`}
-          >
-            {description}
-          </p>
-
-          {shouldShowButton && (
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setIsExpanded(!isExpanded)}
-              className="mb-4 text-blue-600 hover:text-blue-800"
-            >
-              {isExpanded ? (
-                <>
-                  Ver menos <ChevronUp className="ml-1 h-4 w-4" />
-                </>
-              ) : (
-                <>
-                  Ver mais <ChevronDown className="ml-1 h-4 w-4" />
-                </>
-              )}
-            </Button>
-          )}
+          <p className="text-gray-700 mb-4 leading-relaxed">{description}</p>
 
           {tags.length > 0 && (
             <div className="flex flex-wrap gap-1">
@@ -168,6 +139,6 @@ export default function SimpleTimelineCard({
           )}
         </CardContent>
       </Card>
-    </motion.div>
+    </div>
   );
 }
