@@ -9,7 +9,7 @@ import {
   Sprout,
   BicepsFlexed,
 } from "lucide-react";
-import Sidebar from "../components/sidebar";
+// ...existing code...
 import SimpleTimelineCard from "../components/simple-timeline-card";
 import ImageModal from "../components/image-modal";
 import SectionHeader from "../components/section-header";
@@ -67,8 +67,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 to-red-50">
-      {/* Sidebar removida para landing page */}
-
       <main>
         {/* Hero Section */}
         <section
