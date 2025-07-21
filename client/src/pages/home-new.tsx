@@ -138,7 +138,7 @@ export default function Home() {
               <Card className="hover:shadow-lg transition-shadow">
                 <div className="relative">
                   <img
-                    src={"/CapoeiraJourney/CapoeiraJourney/image1.jpg"}
+                    src={"/CapoeiraJourney/image1.jpg"}
                     alt="Quilombos e Escravidão"
                     className="w-full h-48 object-cover rounded-t-lg"
                   />
@@ -160,7 +160,7 @@ export default function Home() {
               <Card className="hover:shadow-lg transition-shadow">
                 <div className="relative">
                   <img
-                    src={"/CapoeiraJourney/CapoeiraJourney/image2.jpg"}
+                    src={"/CapoeiraJourney/image2.jpg"}
                     alt="Influência Indígena"
                     className="w-full h-48 object-cover rounded-t-lg"
                   />
@@ -182,7 +182,7 @@ export default function Home() {
               <Card className="hover:shadow-lg transition-shadow">
                 <div className="relative">
                   <img
-                    src={"/CapoeiraJourney/CapoeiraJourney/image3.jpeg"}
+                    src={"/CapoeiraJourney/image3.jpeg"}
                     alt="Guerra do Paraguai"
                     className="w-full h-48 object-cover rounded-t-lg"
                   />
@@ -204,7 +204,7 @@ export default function Home() {
               <Card className="hover:shadow-lg transition-shadow">
                 <div className="relative">
                   <img
-                    src={"/CapoeiraJourney/CapoeiraJourney/image4.jpeg"}
+                    src={"/CapoeiraJourney/image4.jpeg"}
                     alt="Luiz Gama"
                     className="w-full h-48 object-cover rounded-t-lg"
                   />
