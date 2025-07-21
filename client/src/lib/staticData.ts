@@ -185,16 +185,6 @@ export const allClasses: Class[] = [
     type: "prática",
   },
   {
-    id: 16,
-    date: "02/06/2025",
-    title: "Fundamentos da Capoeira Regional - Finalização",
-    content:
-      "No dia 02/06 tivemos nosso último encontro prático sobre os fundamentos da Capoeira Regional na sala de ginástica do COESPE. Aprofundamos o estudo do método de Mestre Bimba através de materiais específicos, incluindo slides e o livro em PDF de Mestre Xaréu, discípulo direto de Mestre Bimba. Consolidamos o aprendizado das 8 sequências, refinando os movimentos encadeados e compreendendo melhor a filosofia por trás da sistematização da Regional. Foi um momento de síntese prática onde pudemos aplicar todo o conhecimento acumulado sobre esta modalidade revolucionária que transformou o ensino da Capoeira. O professor enfatizou a importância de 'caminhar pela Capoeira' através das visitas aos grupos locais, pois 'aquele que não caminha pela Capoeira, não conhece o mandingueiro'.",
-    location: "Sala de Ginástica COESPE",
-    tags: ["Regional", "Bimba", "Prática", "Xaréu"],
-    type: "prática",
-  },
-  {
     id: 17,
     date: "04/06/2025",
     title: "Escolas de Capoeira Angola e Regional Baiana",
@@ -203,16 +193,6 @@ export const allClasses: Class[] = [
     location: "Sala 3 DEF",
     tags: ["Angola", "Regional", "Escolas", "Teoria"],
     type: "teoria",
-  },
-  {
-    id: 18,
-    date: "09/06/2025",
-    title: "Fundamentos da Malícia na Capoeira",
-    content:
-      "No dia 09/06 mergulhamos nos fundamentos da malícia na Capoeira, um dos conceitos mais profundos e complexos da arte capoeirística. Na sala de ginástica, exploramos como a malícia não é maldade, mas sim inteligência corporal, esperteza e capacidade de adaptação durante o jogo. Aprendemos que a malícia envolve ler o oponente, antecipar movimentos, usar a dissimulação e transformar situações desfavoráveis em vantajosas. Praticamos movimentos que exigem malícia como esquivas tardias, contragolpes inesperados e mudanças súbitas de ritmo. Vimos vídeos e textos que ilustraram como os antigos capoeiristas usavam a malícia tanto no jogo quanto na vida urbana, sendo uma ferramenta de sobrevivência e resistência cultural.",
-    location: "Sala de Ginástica - Ginásio I",
-    tags: ["Malícia", "Filosofia", "Prática", "Fundamentos"],
-    type: "prática",
   },
   {
     id: 19,
