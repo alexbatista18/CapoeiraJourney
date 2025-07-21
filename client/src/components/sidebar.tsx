@@ -19,19 +19,17 @@ interface SidebarProps {
 }
 
 const navigationItems = [
-  { id: "inicio", label: "Início", icon: Home },
-  { id: "timeline", label: "Timeline das Aulas", icon: Calendar },
-  { id: "momentos-historicos", label: "Momentos Históricos", icon: BookOpen },
-  { id: "galeria", label: "Atividades Práticas", icon: Images },
-  { id: "fundamentos", label: "Fundamentos", icon: BicepsFlexed },
-  { id: "metodologias", label: "Metodologias TGfU", icon: Lightbulb },
+  { id: "hero", label: "Início", icon: Home },
+  { id: "aulas", label: "Timeline das Aulas", icon: Calendar },
+  { id: "historia", label: "Contexto Histórico", icon: BookOpen },
+  { id: "atividades", label: "Atividades Práticas", icon: Images },
   { id: "seminarios", label: "Seminários", icon: Users },
-  { id: "cultura", label: "Cultura & Folclore", icon: Drum },
   { id: "reflexoes", label: "Reflexões", icon: Lightbulb },
+  { id: "metodologia", label: "Metodologia TGfU", icon: Drum },
 ];
 
 export default function Sidebar({ onNavigate }: SidebarProps) {
-  const [activeSection, setActiveSection] = useState("inicio");
+  const [activeSection, setActiveSection] = useState("hero");
 
   const handleNavigation = (sectionId: string) => {
     setActiveSection(sectionId);

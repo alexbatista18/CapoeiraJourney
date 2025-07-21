@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
-import { Calendar, MapPin } from "lucide-react";
+import { Calendar, MapPin, ChevronDown, ChevronUp } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 interface SimpleTimelineCardProps {
   date: string;
@@ -15,11 +17,11 @@ interface SimpleTimelineCardProps {
 
 const getTypeColor = (type: string) => {
   switch (type) {
-    case 'theory':
+    case 'teoria':
       return 'bg-blue-100 text-blue-800';
-    case 'practice':
+    case 'prática':
       return 'bg-green-100 text-green-800';
-    case 'mixed':
+    case 'mista':
       return 'bg-purple-100 text-purple-800';
     default:
       return 'bg-gray-100 text-gray-800';
@@ -87,6 +89,9 @@ export default function SimpleTimelineCard({
   location, 
   isLeft 
 }: SimpleTimelineCardProps) {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const shouldShowButton = description.length > 300;
+
   return (
     <motion.div
       initial={{ opacity: 0, x: isLeft ? -50 : 50 }}
@@ -121,9 +126,28 @@ export default function SimpleTimelineCard({
           )}
         </CardHeader>
         <CardContent>
-          <p className="text-gray-700 mb-4 leading-relaxed line-clamp-3">
+          <p className={`text-gray-700 mb-4 leading-relaxed ${!isExpanded && shouldShowButton ? 'line-clamp-3' : ''}`}>
             {description}
           </p>
+          
+          {shouldShowButton && (
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="mb-4 text-blue-600 hover:text-blue-800"
+            >
+              {isExpanded ? (
+                <>
+                  Ver menos <ChevronUp className="ml-1 h-4 w-4" />
+                </>
+              ) : (
+                <>
+                  Ver mais <ChevronDown className="ml-1 h-4 w-4" />
+                </>
+              )}
+            </Button>
+          )}
           
           {tags.length > 0 && (
             <div className="flex flex-wrap gap-1">
