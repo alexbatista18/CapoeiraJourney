@@ -168,6 +168,87 @@ export const allClasses: Class[] = [
     location: "Ginásio COESPE",
     tags: ["Regional", "Bimba", "Sequência", "Toques", "Banguela"],
     type: "prática"
+  },
+  {
+    id: 16,
+    date: "02/06/2025",
+    title: "Fundamentos da Capoeira Regional - Finalização",
+    content: "No dia 02/06 tivemos nosso último encontro prático sobre os fundamentos da Capoeira Regional na sala de ginástica do COESPE. Aprofundamos o estudo do método de Mestre Bimba através de materiais específicos, incluindo slides e o livro em PDF de Mestre Xaréu, discípulo direto de Mestre Bimba. Consolidamos o aprendizado das 8 sequências, refinando os movimentos encadeados e compreendendo melhor a filosofia por trás da sistematização da Regional. Foi um momento de síntese prática onde pudemos aplicar todo o conhecimento acumulado sobre esta modalidade revolucionária que transformou o ensino da Capoeira. O professor enfatizou a importância de 'caminhar pela Capoeira' através das visitas aos grupos locais, pois 'aquele que não caminha pela Capoeira, não conhece o mandingueiro'.",
+    location: "Sala de Ginástica COESPE",
+    tags: ["Regional", "Bimba", "Prática", "Xaréu"],
+    type: "prática"
+  },
+  {
+    id: 17,
+    date: "04/06/2025",
+    title: "Escolas de Capoeira Angola e Regional Baiana",
+    content: "No dia 04/06 realizamos uma aula teórica na sala 3 para tratar das escolas de Capoeira Angola e Capoeira Regional Baiana de forma comparativa e aprofundada. Analisamos as diferenças filosóficas, metodológicas e culturais entre as duas principais vertentes da Capoeira moderna. Estudamos como Mestre Pastinha sistematizou a Capoeira Angola preservando as tradições ancestrais, enquanto Mestre Bimba criou a Regional Baiana como uma modernização estratégica. Compreendemos como ambas as escolas são complementares na preservação da Capoeira, cada uma com sua contribuição específica para a perpetuação da arte. Discutimos a importância das visitas aos grupos locais como forma de vivenciar na prática essas diferentes abordagens, lembrando que 'excesso de educação nunca é demais' ao adentrar esses espaços tradicionais.",
+    location: "Sala 3 DEF",
+    tags: ["Angola", "Regional", "Escolas", "Teoria"],
+    type: "teoria"
+  },
+  {
+    id: 18,
+    date: "09/06/2025",
+    title: "Fundamentos da Malícia na Capoeira",
+    content: "No dia 09/06 mergulhamos nos fundamentos da malícia na Capoeira, um dos conceitos mais profundos e complexos da arte capoeirística. Na sala de ginástica, exploramos como a malícia não é maldade, mas sim inteligência corporal, esperteza e capacidade de adaptação durante o jogo. Aprendemos que a malícia envolve ler o oponente, antecipar movimentos, usar a dissimulação e transformar situações desfavoráveis em vantajosas. Praticamos movimentos que exigem malícia como esquivas tardias, contragolpes inesperados e mudanças súbitas de ritmo. Vimos vídeos e textos que ilustraram como os antigos capoeiristas usavam a malícia tanto no jogo quanto na vida urbana, sendo uma ferramenta de sobrevivência e resistência cultural.",
+    location: "Sala de Ginástica - Ginásio I",
+    tags: ["Malícia", "Filosofia", "Prática", "Fundamentos"],
+    type: "prática"
+  },
+  {
+    id: 19,
+    date: "11/06/2025",
+    title: "Mandinga e Malandragem na Capoeira",
+    content: "No dia 11/06 continuamos na sala de ginástica explorando os conceitos de mandinga e malandragem, elementos fundamentais da filosofia capoeirística. A mandinga foi compreendida como a dimensão mística e ancestral da Capoeira, conectada às tradições afro-brasileiras e ao axé que flui durante o jogo. Já a malandragem revelou-se como a capacidade de adaptação urbana, a esperteza de rua que os capoeiristas desenvolveram para navegar nos contextos sociais adversos. Praticamos situações de jogo onde aplicamos esses conceitos: movimentos que confundem o oponente, fingimentos, uso do ritual e da energia da roda para influenciar o jogo. Compreendemos que malícia, mandinga e malandragem formam uma tríade indissociável que define a essência da capoeiragem tradicional.",
+    location: "Sala de Ginástica - Ginásio I",
+    tags: ["Mandinga", "Malandragem", "Filosofia", "Ancestralidade"],
+    type: "prática"
+  },
+  {
+    id: 20,
+    date: "16/06/2025",
+    title: "Aspectos Folclóricos da Capoeiragem - Ijexá e Congado",
+    content: "No dia 16/06 exploramos os aspectos folclóricos associados à cultura da capoeiragem, iniciando com o Ijexá e o Congado. O Ijexá, ritmo de origem iorubá dedicado a Oxum, mostrou sua conexão com a Capoeira através da musicalidade e da espiritualidade afro-brasileira. Praticamos o toque do Ijexá nos atabaques e compreendemos sua importância nas festividades do candomblé que influenciaram a Capoeira. O Congado revelou-se como uma manifestação cultural independente mas complementar, onde a dança, os tambores e a religiosidade se entrelaçam de forma similar à Capoeira. Vimos como essas manifestações compartilham raízes africanas comuns e como se influenciam mutuamente, mantendo viva a herança cultural dos povos africanos no Brasil.",
+    location: "Sala de Ginástica",
+    tags: ["Folclore", "Ijexá", "Congado", "Cultura"],
+    type: "mista"
+  },
+  {
+    id: 21,
+    date: "18/06/2025",
+    title: "Maculelê, Samba de Roda e Cultivo da Cabaça",
+    content: "No dia 18/06 completamos o estudo dos aspectos folclóricos com o Maculelê e o Samba de Roda, além da roda de conversa sobre o cultivo da cabaça. O Maculelê, dança-luta com bastões, mostrou suas origens no recôncavo baiano e sua proximidade com a Capoeira no uso do corpo, do ritmo e da roda. O Samba de Roda revelou-se como matriz do samba moderno, compartilhando com a Capoeira a circularidade, a improvisação e a interação musical. Na roda de conversa, cada estudante compartilhou sua experiência com o cultivo da cabaça - sucessos, fracassos, aprendizados e descobertas. Independentemente do resultado da germinação, o importante foi o processo de conexão com a natureza e compreensão do ciclo completo da confecção do berimbau. Transplantamos as mudas para a horta do Departamento de Nutrição, simbolizando a continuidade do projeto.",
+    location: "Sala de Ginástica + Horta",
+    tags: ["Maculelê", "Samba de Roda", "Cabaça", "Cultivo"],
+    type: "mista"
+  },
+  {
+    id: 22,
+    date: "23/06/2025",
+    title: "Floreios na Capoeira e Estética",
+    content: "No dia 23/06 exploramos os floreios na Capoeira e suas relações com o campo da estética. Os floreios - movimentos acrobáticos e ornamentais - foram compreendidos não apenas como demonstrações de habilidade física, mas como expressões artísticas que elevam a Capoeira ao patamar de arte performática. Praticamos diferentes tipos de floreios: au sem mão, parafuso, salto mortal, bico de papagaio, e outros movimentos que exigem técnica refinada e criatividade. Discutimos como os floreios modernos dialogam com a tradição, às vezes gerando tensões entre puristas e inovadores. Finalizamos o processo do cultivo da cabaça com o replantio na horta da Escola de Saúde Coletiva, dando novo propósito aos saquinhos com terra e conectando nosso aprendizado com a sustentabilidade ambiental.",
+    location: "Sala de Ginástica + Horta ESC",
+    tags: ["Floreios", "Estética", "Arte", "Sustentabilidade"],
+    type: "prática"
+  },
+  {
+    id: 23,
+    date: "30/06/2025",
+    title: "Preparação Física e Semana de Musicalidade",
+    content: "No dia 30/06 demos continuidade ao estudo dos floreios integrando-os com a preparação física específica para a Capoeira. Trabalhamos exercícios de fortalecimento, flexibilidade e coordenação necessários para executar movimentos acrobáticos com segurança e elegância. Iniciamos os preparativos para a Semana de Musicalidade na Capoeira (07 a 11 de julho), organizando grupos para criação de cartazes e divulgação do evento. Compreendemos que a musicalidade é um pilar fundamental da Capoeira, tão importante quanto a movimentação física. O professor apresentou o modelo de portfólio que documenta todo nosso processo de aprendizagem ao longo do semestre. Foi uma aula intensamente prática onde consolidamos conhecimentos sobre condicionamento físico específico para capoeiristas.",
+    location: "Sala de Ginástica",
+    tags: ["Preparação", "Musicalidade", "Portfólio", "Condicionamento"],
+    type: "prática"
+  },
+  {
+    id: 24,
+    date: "02/07/2025",
+    title: "Floreios Avançados e Organização da Semana de Musicalidade",
+    content: "No dia 02/07 aprofundamos a prática de floreios avançados e finalizamos a organização da Semana de Musicalidade na Capoeira. Trabalhamos sequências complexas de movimentos acrobáticos, conectando floreios com movimentos tradicionais para criar transições fluidas e espetaculares. Enfatizamos a importância da segurança na execução, respeitando os limites individuais e progredindo gradualmente. Definimos os últimos detalhes da Semana de Musicalidade: cartazes finalizados, cronograma de atividades e distribuição de responsabilidades entre os grupos. Compreendemos que este evento representa uma oportunidade de compartilhar nosso aprendizado com a comunidade universitária, levando a Capoeira para além da sala de aula. A preparação do evento também serviu como exercício prático de organização cultural e trabalho em equipe.",
+    location: "Sala de Ginástica",
+    tags: ["Floreios", "Musicalidade", "Evento", "Organização"],
+    type: "prática"
   }
 ];
 
