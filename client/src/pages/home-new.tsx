@@ -10,7 +10,7 @@ import {
   BicepsFlexed,
 } from "lucide-react";
 import Sidebar from "../components/sidebar";
-import SimpleTimelineCard from "../components/simple-timeline-card";
+import TimelineCard from "../components/timeline-card";
 import ImageModal from "../components/image-modal";
 import SectionHeader from "../components/section-header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -67,7 +67,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 to-red-50">
-      <Sidebar onNavigate={scrollToSection} />
+      <Sidebar scrollToSection={scrollToSection} />
 
       <main className="lg:ml-64">
         {/* Hero Section */}
@@ -112,7 +112,7 @@ export default function Home() {
 
             <div className="mt-12 space-y-8">
               {classes.map((classItem, index) => (
-                <SimpleTimelineCard
+                <TimelineCard
                   key={classItem.id}
                   date={classItem.date}
                   title={classItem.title}
