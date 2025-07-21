@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 // Sidebar removido
 import TimelineCard from "../components/timeline-card";
-import ImageModal from "../components/CapoeiraJourney/image-modal";
+import ImageModal from "../components/image-modal";
 import SectionHeader from "../components/section-header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
