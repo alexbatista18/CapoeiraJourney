@@ -1,4 +1,8 @@
-import { motion } from "framer-motion";
+// import das imagens para garantir compatibilidade com Vite/GitHub Pages
+import image1 from "../../public/image1.jpg";
+import image2 from "../../public/image2.jpg";
+import image3 from "../../public/image3.jpeg";
+import image4 from "../../public/image4.jpeg";
 import {
   Calendar,
   Users,
@@ -75,27 +79,21 @@ export default function Home() {
         >
           <div className="absolute inset-0 bg-gradient-to-br from-orange-600 via-red-600 to-yellow-600 opacity-90"></div>
           <div className="relative z-10 text-center text-white px-4">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
+            <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
+              Jornada da <span className="text-yellow-300">Capoeira</span>
+            </h1>
+            <p className="text-xl lg:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed">
+              Portfólio acadêmico da disciplina de Capoeira - DEF/UFRN
+              <br />
+              Uma imersão completa na cultura, história e prática da arte
+              afro-brasileira
+            </p>
+            <Button
+              onClick={() => scrollToSection("aulas")}
+              className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-4 px-8 rounded-full text-lg transition-all transform hover:scale-105 shadow-lg"
             >
-              <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
-                Jornada da <span className="text-yellow-300">Capoeira</span>
-              </h1>
-              <p className="text-xl lg:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed">
-                Portfólio acadêmico da disciplina de Capoeira - DEF/UFRN
-                <br />
-                Uma imersão completa na cultura, história e prática da arte
-                afro-brasileira
-              </p>
-              <Button
-                onClick={() => scrollToSection("aulas")}
-                className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-4 px-8 rounded-full text-lg transition-all transform hover:scale-105 shadow-lg"
-              >
-                Explorar Jornada
-              </Button>
-            </motion.div>
+              Explorar Jornada
+            </Button>
           </div>
         </section>
 
@@ -138,7 +136,7 @@ export default function Home() {
               <Card className="hover:shadow-lg transition-shadow">
                 <div className="relative">
                   <img
-                    src={"/CapoeiraJourney/image1.jpg"}
+                    src={image1}
                     alt="Quilombos e Escravidão"
                     className="w-full h-48 object-cover rounded-t-lg"
                   />
@@ -160,7 +158,7 @@ export default function Home() {
               <Card className="hover:shadow-lg transition-shadow">
                 <div className="relative">
                   <img
-                    src={"/CapoeiraJourney/image2.jpg"}
+                    src={image2}
                     alt="Influência Indígena"
                     className="w-full h-48 object-cover rounded-t-lg"
                   />
@@ -182,7 +180,7 @@ export default function Home() {
               <Card className="hover:shadow-lg transition-shadow">
                 <div className="relative">
                   <img
-                    src={"/CapoeiraJourney/image3.jpeg"}
+                    src={image3}
                     alt="Guerra do Paraguai"
                     className="w-full h-48 object-cover rounded-t-lg"
                   />
@@ -204,7 +202,7 @@ export default function Home() {
               <Card className="hover:shadow-lg transition-shadow">
                 <div className="relative">
                   <img
-                    src={"/CapoeiraJourney/image4.jpeg"}
+                    src={image4}
                     alt="Luiz Gama"
                     className="w-full h-48 object-cover rounded-t-lg"
                   />
