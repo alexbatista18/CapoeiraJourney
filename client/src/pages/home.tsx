@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { Calendar, Users, BookOpen, Lightbulb, Images, Drum, Sprout, BicepsFlexed } from "lucide-react";
-import Sidebar from "@/components/sidebar";
-import TimelineCard from "@/components/timeline-card";
-import ImageModal from "@/components/image-modal";
-import SectionHeader from "@/components/section-header";
+import Sidebar from "../components/sidebar";
+import TimelineCard from "../components/timeline-card";
+import ImageModal from "../components/image-modal";
+import SectionHeader from "../components/section-header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -276,10 +276,10 @@ export default function Home() {
               {activities.map((activity) => (
                 <Card key={activity.id} className="hover:shadow-lg transition-shadow overflow-hidden">
                   <div className="relative cursor-pointer" onClick={() => 
-                    openImageModal(activity.imageUrl || '', activity.title, activity.description)
+                    openImageModal(activity.imageUrl ?? '', activity.title, activity.description)
                   }>
                     <img 
-                      src={activity.imageUrl}
+                      src={activity.imageUrl ?? ''}
                       alt={activity.title}
                       className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
                     />
@@ -369,13 +369,134 @@ export default function Home() {
             </div>
           </motion.section>
 
+          {/* Metodologias de Ensino */}
+          <motion.section 
+            id="metodologias"
+            className="mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
+            <SectionHeader 
+              title="Metodologias de Ensino" 
+              icon={<BookOpen className="w-6 h-6" />}
+            />
+            <div className="space-y-6">
+              <Card className="hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <div className="flex items-center gap-4">
+                    <div className="bg-capoeira-blue rounded-full p-3">
+                      <Lightbulb className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-capoeira-blue">TGfU - Teaching Games for Understanding</CardTitle>
+                      <p className="text-sm text-gray-600">Metodologia Central do Curso</p>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-semibold mb-3">Princípios da Metodologia:</h4>
+                      <ul className="space-y-2 text-gray-600">
+                        <li className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-capoeira-blue rounded-full mt-2 flex-shrink-0"></div>
+                          <span>Compreensão do jogo antes da técnica</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-capoeira-blue rounded-full mt-2 flex-shrink-0"></div>
+                          <span>Vivência prática seguida de reflexão</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-capoeira-blue rounded-full mt-2 flex-shrink-0"></div>
+                          <span>Fechamento de ciclos com rodas</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-capoeira-blue rounded-full mt-2 flex-shrink-0"></div>
+                          <span>Contextualização histórica e cultural</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-3">Aplicação Prática:</h4>
+                      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                        <p className="text-blue-800 text-sm mb-2">
+                          <strong>Sequência Metodológica:</strong>
+                        </p>
+                        <ol className="text-blue-700 text-sm space-y-1">
+                          <li>1. Vivência da roda de capoeira</li>
+                          <li>2. Decomposição dos movimentos</li>
+                          <li>3. Prática técnica orientada</li>
+                          <li>4. Contextualização histórica</li>
+                          <li>5. Retorno à roda com compreensão ampliada</li>
+                        </ol>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="mt-6 grid md:grid-cols-3 gap-4">
+                    <div className="text-center p-4 bg-yellow-50 rounded-lg">
+                      <div className="text-2xl mb-2">🎯</div>
+                      <h5 className="font-semibold">Angola</h5>
+                      <p className="text-xs text-gray-600">Chamadas e passo a dois</p>
+                    </div>
+                    <div className="text-center p-4 bg-red-50 rounded-lg">
+                      <div className="text-2xl mb-2">⚡</div>
+                      <h5 className="font-semibold">Regional</h5>
+                      <p className="text-xs text-gray-600">Sequências e balões</p>
+                    </div>
+                    <div className="text-center p-4 bg-green-50 rounded-lg">
+                      <div className="text-2xl mb-2">🔄</div>
+                      <h5 className="font-semibold">Ciclos</h5>
+                      <p className="text-xs text-gray-600">Sempre fechados com rodas</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <CardTitle className="text-capoeira-green">Pedagogia Espacial</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 mb-4">
+                    Utilização de diferentes espaços como estratégia pedagógica: salas de aula para teoria, 
+                    ginásios para prática, ambientes externos para vivências comunitárias.
+                  </p>
+                  <div className="grid md:grid-cols-3 gap-4">
+                    <div className="flex items-center gap-3 p-3 border rounded-lg">
+                      <div className="w-8 h-8 bg-blue-500 rounded text-white flex items-center justify-center text-sm">S3</div>
+                      <div>
+                        <p className="font-medium">Sala 3 DEF</p>
+                        <p className="text-xs text-gray-600">Teoria e contexto</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3 p-3 border rounded-lg">
+                      <div className="w-8 h-8 bg-green-500 rounded text-white flex items-center justify-center text-sm">G</div>
+                      <div>
+                        <p className="font-medium">Ginásio COESPE</p>
+                        <p className="text-xs text-gray-600">Prática e rodas</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3 p-3 border rounded-lg">
+                      <div className="w-8 h-8 bg-amber-500 rounded text-white flex items-center justify-center text-sm">E</div>
+                      <div>
+                        <p className="font-medium">Espaços Externos</p>
+                        <p className="text-xs text-gray-600">Comunidade e extensão</p>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </motion.section>
+
           {/* Seminários */}
           <motion.section 
             id="seminarios"
             className="mb-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
           >
             <SectionHeader 
               title="Seminários de Atualização" 

@@ -25,6 +25,7 @@ const navigationItems = [
   { id: "momentos-historicos", label: "Momentos Históricos", icon: BookOpen },
   { id: "galeria", label: "Atividades Práticas", icon: Images },
   { id: "fundamentos", label: "Fundamentos", icon: BicepsFlexed },
+  { id: "metodologias", label: "Metodologias TGfU", icon: Lightbulb },
   { id: "seminarios", label: "Seminários", icon: Users },
   { id: "cultura", label: "Cultura & Folclore", icon: Drum },
   { id: "plantas", label: "Plantas na Capoeira", icon: Sprout },
