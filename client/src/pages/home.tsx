@@ -1,136 +1,14 @@
-import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
-import {
-  Calendar,
-  Users,
-  BookOpen,
-  Lightbulb,
-  Images,
-  Drum,
-  Sprout,
-  BicepsFlexed,
-} from "lucide-react";
+import { Calendar, Users, BookOpen, Lightbulb, Images, Drum, Sprout, BicepsFlexed } from "lucide-react";
 import Sidebar from "../components/sidebar";
-import TimelineCard from "../components/timeline-card";
+import SimpleTimelineCard from "../components/simple-timeline-card";
 import ImageModal from "../components/image-modal";
 import SectionHeader from "../components/section-header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-
-// Dados estáticos para GitHub Pages
-const staticClasses = [
-  {
-    id: 1,
-    date: "2025-03-31",
-    title: "Introdução à Capoeira Angola",
-    description:
-      "Primeira aula sobre os fundamentos históricos e culturais da Capoeira Angola, abordando suas origens africanas e desenvolvimento no Brasil.",
-    type: "teoria",
-    topics: [
-      "História da Capoeira",
-      "Capoeira Angola vs Regional",
-      "Mestres históricos",
-    ],
-  },
-  {
-    id: 2,
-    date: "2025-04-02",
-    title: "Movimentos Básicos e Ginga",
-    description:
-      "Prática dos movimentos fundamentais da capoeira, com foco na ginga como movimento base e primeiras esquivas.",
-    type: "prática",
-    topics: ["Ginga", "Cocorinha", "Negativa", "Esquivas básicas"],
-  },
-  {
-    id: 3,
-    date: "2025-04-07",
-    title: "Instrumentos e Musicalidade",
-    description:
-      "Aprendizado sobre os instrumentos da capoeira, especialmente o berimbau, e sua importância na roda.",
-    type: "música",
-    topics: ["Berimbau", "Pandeiro", "Atabaque", "Cantigas tradicionais"],
-  },
-  {
-    id: 4,
-    date: "2025-04-09",
-    title: "Roda de Capoeira",
-    description:
-      "Primeira experiência prática em roda, aplicando os conhecimentos adquiridos nas aulas anteriores.",
-    type: "prática",
-    topics: [
-      "Protocolo da roda",
-      "Interação entre capoeiristas",
-      "Energia e fluxo",
-    ],
-  },
-];
-
-const staticActivities = [
-  {
-    id: 1,
-    title: "Visita ao Museu Afro-Brasileiro",
-    description:
-      "Atividade complementar para compreender o contexto histórico e cultural da capoeira.",
-    date: "2025-04-15",
-    type: "cultural",
-    imageUrl: "/image5.jpeg",
-  },
-  {
-    id: 2,
-    title: "Workshop de Confecção de Instrumentos",
-    description:
-      "Aprendizado prático sobre como construir e manter instrumentos tradicionais da capoeira.",
-    date: "2025-04-20",
-    type: "prático",
-    imageUrl: "/image6.jpeg",
-  },
-];
-
-const staticSeminars = [
-  {
-    id: 1,
-    title: "Capoeira e Resistência Cultural",
-    speaker: "Mestre João",
-    date: "2025-04-25",
-    description:
-      "Seminário sobre o papel da capoeira como forma de resistência e preservação cultural.",
-    groupNumber: 1,
-    topic: "Resistência Cultural",
-    members: ["Ana Silva", "Carlos Santos", "Maria Oliveira"],
-  },
-  {
-    id: 2,
-    title: "Tradições Musicais da Capoeira",
-    speaker: "Contramestre Pedro",
-    date: "2025-05-02",
-    description:
-      "Exploração profunda da musicalidade e instrumentos tradicionais da capoeira.",
-    groupNumber: 2,
-    topic: "Musicalidade",
-    members: ["João Costa", "Fernanda Lima", "Roberto Alves"],
-  },
-];
-
-const staticReflections = [
-  {
-    id: 1,
-    title: "Reflexão sobre Identidade Cultural",
-    content:
-      "A capoeira me fez compreender melhor a riqueza da cultura afro-brasileira e sua importância na formação da identidade nacional.",
-    date: "2025-04-10",
-    author: "Estudante",
-  },
-  {
-    id: 2,
-    title: "Movimento e Filosofia",
-    content:
-      "Descobri que a capoeira vai além dos movimentos físicos - é uma filosofia de vida que ensina respeito, disciplina e comunidade.",
-    date: "2025-04-12",
-    author: "Estudante",
-  },
-];
+import { allClasses, allActivities, allSeminars, allReflections } from "@/lib/staticData";
 
 export default function Home() {
   const [selectedImage, setSelectedImage] = useState<{
@@ -139,16 +17,16 @@ export default function Home() {
     description: string;
   } | null>(null);
 
-  // Usar dados estáticos em vez de queries para GitHub Pages
-  const classes = staticClasses;
-  const activities = staticActivities;
-  const seminars = staticSeminars;
-  const reflections = staticReflections;
+  // Usar dados estáticos diretos
+  const classes = allClasses;
+  const activities = allActivities;
+  const seminars = allSeminars;
+  const reflections = allReflections;
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
@@ -160,575 +38,342 @@ export default function Home() {
     setSelectedImage(null);
   };
 
+  const getTypeColor = (type: string) => {
+    switch (type) {
+      case 'theory':
+        return 'bg-blue-100 text-blue-800';
+      case 'practice':
+        return 'bg-green-100 text-green-800';
+      case 'mixed':
+        return 'bg-purple-100 text-purple-800';
+      default:
+        return 'bg-gray-100 text-gray-800';
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-neutral-bg">
-      <div className="flex">
-        <Sidebar onNavigate={scrollToSection} />
-
-        <main className="flex-1 ml-72 p-8">
-          {/* Hero Section */}
-          <motion.section
-            id="inicio"
-            className="mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="gradient-capoeira rounded-xl shadow-lg p-8 text-white">
-              <h1 className="text-4xl font-bold mb-4">Portfólio de Capoeira</h1>
-              <p className="text-xl font-light mb-6">
-                Uma jornada através do semestre de aprendizado em Capoeira -
-                DEF/UFRN
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-red-50">
+      <Sidebar onNavigate={scrollToSection} />
+      
+      <main className="lg:ml-64">
+        {/* Hero Section */}
+        <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-orange-600 via-red-600 to-yellow-600 opacity-90"></div>
+          <div className="relative z-10 text-center text-white px-4">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+            >
+              <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
+                Jornada da <span className="text-yellow-300">Capoeira</span>
+              </h1>
+              <p className="text-xl lg:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed">
+                Portfólio acadêmico da disciplina de Capoeira - DEF/UFRN
+                <br />
+                Uma imersão completa na cultura, história e prática da arte afro-brasileira
               </p>
-              <div className="flex flex-wrap gap-4">
-                <Badge
-                  variant="secondary"
-                  className="bg-white bg-opacity-20 text-white"
-                >
-                  Março - Julho 2025
-                </Badge>
-                <Badge
-                  variant="secondary"
-                  className="bg-white bg-opacity-20 text-white"
-                >
-                  História & Prática
-                </Badge>
-                <Badge
-                  variant="secondary"
-                  className="bg-white bg-opacity-20 text-white"
-                >
-                  Cultura Brasileira
-                </Badge>
-              </div>
-            </div>
-          </motion.section>
+              <Button 
+                onClick={() => scrollToSection('aulas')}
+                className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-4 px-8 rounded-full text-lg transition-all transform hover:scale-105 shadow-lg"
+              >
+                Explorar Jornada
+              </Button>
+            </motion.div>
+          </div>
+        </section>
 
-          {/* Timeline das Aulas */}
-          <motion.section
-            id="timeline"
-            className="mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <SectionHeader
+        {/* Timeline das Aulas */}
+        <section id="aulas" className="py-20 px-4 lg:px-8">
+          <div className="max-w-6xl mx-auto">
+            <SectionHeader 
+              icon={Calendar}
               title="Timeline das Aulas"
-              icon={<Calendar className="w-6 h-6" />}
+              subtitle="Acompanhe nossa jornada de aprendizado através das aulas ministradas"
             />
-            <div className="space-y-6">
+            
+            <div className="mt-12 space-y-8">
               {classes.map((classItem, index) => (
-                <motion.div
+                <SimpleTimelineCard
                   key={classItem.id}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                >
-                  <TimelineCard classItem={classItem} />
-                </motion.div>
+                  date={classItem.date}
+                  title={classItem.title}
+                  description={classItem.content}
+                  type={classItem.type}
+                  tags={classItem.tags || []}
+                  location={classItem.location || ''}
+                  isLeft={index % 2 === 0}
+                />
               ))}
             </div>
-          </motion.section>
+          </div>
+        </section>
 
-          {/* Momentos Históricos */}
-          <motion.section
-            id="momentos-historicos"
-            className="mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <SectionHeader
-              title="Momentos Históricos"
-              icon={<BookOpen className="w-6 h-6" />}
+        {/* Contexto Histórico */}
+        <section id="historia" className="py-20 px-4 lg:px-8 bg-gray-50">
+          <div className="max-w-6xl mx-auto">
+            <SectionHeader 
+              icon={BookOpen}
+              title="Contexto Histórico"
+              subtitle="Explorando as raízes e a evolução da Capoeira no Brasil"
             />
-            <div className="grid md:grid-cols-2 gap-6">
+            
+            <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-2 gap-8">
               <Card className="hover:shadow-lg transition-shadow">
                 <div className="relative">
-                  <img
-                    src={"/image1.jpg"}
+                  <img 
+                    src={"/CapoeiraJourney/image1.jpg"}
                     alt="Quilombos e Escravidão"
                     className="w-full h-48 object-cover rounded-t-lg"
                   />
                 </div>
                 <CardHeader>
-                  <CardTitle className="text-capoeira-blue">
-                    Quilombos e Escravidão
-                  </CardTitle>
+                  <CardTitle className="text-capoeira-blue">Quilombos e Escravidão</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600">
-                    Estudo sobre o modo quilombola de viver e como essa forma de
-                    organização social influenciou diretamente o desenvolvimento
-                    da capoeira como manifestação cultural de resistência.
+                    Estudo aprofundado sobre os quilombos como espaços de resistência e 
+                    desenvolvimento da capoeira durante o período colonial e imperial brasileiro.
                   </p>
                 </CardContent>
               </Card>
 
               <Card className="hover:shadow-lg transition-shadow">
                 <div className="relative">
-                  <img
-                    src={"/image2.jpg"}
+                  <img 
+                    src={"/CapoeiraJourney/image2.jpg"}
                     alt="Influência Indígena"
                     className="w-full h-48 object-cover rounded-t-lg"
                   />
                 </div>
                 <CardHeader>
-                  <CardTitle className="text-capoeira-blue">
-                    Influência Indígena
-                  </CardTitle>
+                  <CardTitle className="text-capoeira-blue">Influência Indígena</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600">
-                    Análise da contribuição dos povos originários para a
-                    capoeira, incluindo aspectos linguísticos, rituais e
-                    movimentos que foram incorporados à prática.
+                    Análise da contribuição dos povos originários para a capoeira, incluindo 
+                    aspectos linguísticos, rituais e movimentos que foram incorporados à prática.
                   </p>
                 </CardContent>
               </Card>
 
               <Card className="hover:shadow-lg transition-shadow">
                 <div className="relative">
-                  <img
-                    src={"/image3.jpeg"}
+                  <img 
+                    src={"/CapoeiraJourney/image3.jpeg"}
                     alt="Guerra do Paraguai"
                     className="w-full h-48 object-cover rounded-t-lg"
                   />
                 </div>
                 <CardHeader>
-                  <CardTitle className="text-capoeira-blue">
-                    Guerra do Paraguai
-                  </CardTitle>
+                  <CardTitle className="text-capoeira-blue">Guerra do Paraguai</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600">
-                    Contextualização histórica da participação de capoeiristas
-                    na Guerra do Paraguai e como este conflito impactou a
-                    percepção social da capoeira no Brasil.
+                    Contextualização histórica da participação de capoeiristas na Guerra do 
+                    Paraguai e como este conflito impactou a percepção social da capoeira no Brasil.
                   </p>
                 </CardContent>
               </Card>
 
               <Card className="hover:shadow-lg transition-shadow">
                 <div className="relative">
-                  <img
-                    src={"/image4.jpeg"}
+                  <img 
+                    src={"/CapoeiraJourney/image4.jpeg"}
                     alt="Luiz Gama"
                     className="w-full h-48 object-cover rounded-t-lg"
                   />
                 </div>
                 <CardHeader>
-                  <CardTitle className="text-capoeira-blue">
-                    Luiz Gama
-                  </CardTitle>
+                  <CardTitle className="text-capoeira-blue">Luiz Gama</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600">
-                    Estudo sobre Luiz Gama e outros abolicionistas,
-                    compreendendo o papel da capoeira no movimento de libertação
-                    e resistência negra no Brasil.
+                    Estudo sobre Luiz Gama e outros abolicionistas, compreendendo o papel da 
+                    capoeira no movimento de libertação e resistência negra no Brasil.
                   </p>
                 </CardContent>
               </Card>
             </div>
-          </motion.section>
+          </div>
+        </section>
 
-          {/* Galeria de Atividades Práticas */}
-          <motion.section
-            id="galeria"
-            className="mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            <SectionHeader
+        {/* Atividades Práticas */}
+        <section id="atividades" className="py-20 px-4 lg:px-8">
+          <div className="max-w-6xl mx-auto">
+            <SectionHeader 
+              icon={Images}
               title="Atividades Práticas"
-              icon={<Images className="w-6 h-6" />}
+              subtitle="Registros fotográficos das principais atividades desenvolvidas"
             />
-            <div className="grid md:grid-cols-2 gap-6">
+            
+            <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-2 gap-8">
               {activities.map((activity) => (
-                <Card
-                  key={activity.id}
-                  className="hover:shadow-lg transition-shadow overflow-hidden"
-                >
-                  <div
-                    className="relative cursor-pointer"
-                    onClick={() =>
-                      openImageModal(
-                        activity.imageUrl ?? "",
-                        activity.title,
-                        activity.description
-                      )
-                    }
-                  >
-                    <img
-                      src={activity.imageUrl ?? ""}
+                <Card key={activity.id} className="hover:shadow-lg transition-shadow cursor-pointer"
+                      onClick={() => openImageModal(activity.imageUrl || '', activity.title, activity.description)}>
+                  <div className="relative">
+                    <img 
+                      src={activity.imageUrl || ''}
                       alt={activity.title}
-                      className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
+                      className="w-full h-48 object-cover rounded-t-lg"
                     />
+                    <Badge className="absolute top-2 right-2 bg-orange-500 hover:bg-orange-600">
+                      {activity.category}
+                    </Badge>
                   </div>
                   <CardHeader>
-                    <CardTitle>{activity.title}</CardTitle>
+                    <CardTitle className="text-capoeira-blue">{activity.title}</CardTitle>
                     {activity.date && (
-                      <Badge variant="outline" className="w-fit">
+                      <p className="text-sm text-gray-500 flex items-center">
+                        <Calendar className="h-4 w-4 mr-1" />
                         {activity.date}
-                      </Badge>
+                      </p>
                     )}
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-600">{activity.description}</p>
+                    <p className="text-gray-600 line-clamp-3">{activity.description}</p>
                   </CardContent>
                 </Card>
               ))}
             </div>
-          </motion.section>
+          </div>
+        </section>
 
-          {/* Fundamentos */}
-          <motion.section
-            id="fundamentos"
-            className="mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-          >
-            <SectionHeader
-              title="Fundamentos"
-              icon={<BicepsFlexed className="w-6 h-6" />}
+        {/* Seminários */}
+        <section id="seminarios" className="py-20 px-4 lg:px-8 bg-gray-50">
+          <div className="max-w-6xl mx-auto">
+            <SectionHeader 
+              icon={Users}
+              title="Seminários Científicos"
+              subtitle="Apresentações acadêmicas conectando diferentes áreas do conhecimento com a Capoeira"
             />
-            <div className="grid md:grid-cols-2 gap-6">
-              <Card className="text-center hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="bg-yellow-500 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                    <span className="text-white text-2xl">⚪</span>
-                  </div>
-                  <CardTitle>Capoeira Angola</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 mb-4">
-                    Estilo tradicional, mais próximo ao chão, com movimentos
-                    lentos e ritualizados. Foco na chamada e no jogo de dois.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="text-center hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="bg-red-500 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                    <span className="text-white text-2xl">⚡</span>
-                  </div>
-                  <CardTitle>Capoeira Regional</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 mb-4">
-                    Criada por Mestre Bimba, incorpora movimentos de luta e
-                    sequências codificadas. Mais atlética e vertical.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-          </motion.section>
-
-          {/* Metodologias de Ensino */}
-          <motion.section
-            id="metodologias"
-            className="mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-          >
-            <SectionHeader
-              title="Metodologias de Ensino"
-              icon={<BookOpen className="w-6 h-6" />}
-            />
-            <div className="space-y-6">
-              <Card className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="flex items-center gap-4">
-                    <div className="bg-capoeira-blue rounded-full p-3">
-                      <Lightbulb className="w-6 h-6 text-white" />
+            
+            <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {seminars.map((seminar) => (
+                <Card key={seminar.id} className="hover:shadow-lg transition-shadow">
+                  <CardHeader>
+                    <div className="flex items-center justify-between">
+                      <Badge variant="outline" className="mb-2">
+                        Grupo {seminar.groupNumber}
+                      </Badge>
+                      <Users className="h-5 w-5 text-orange-500" />
                     </div>
-                    <div>
-                      <CardTitle className="text-capoeira-blue">
-                        TGfU - Teaching Games for Understanding
-                      </CardTitle>
-                      <p className="text-sm text-gray-600">
-                        Metodologia Central do Curso
-                      </p>
+                    <CardTitle className="text-lg">
+                      {seminar.topic}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600 text-sm mb-3">
+                      {seminar.description}
+                    </p>
+                    <div className="text-xs text-gray-500">
+                      <strong>Membros:</strong> {seminar.members?.join(', ')}
                     </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <h4 className="font-semibold mb-3">
-                        Princípios da Metodologia:
-                      </h4>
-                      <ul className="space-y-2 text-gray-600">
-                        <li className="flex items-start gap-2">
-                          <div className="w-2 h-2 bg-capoeira-blue rounded-full mt-2 flex-shrink-0"></div>
-                          <span>Compreensão do jogo antes da técnica</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <div className="w-2 h-2 bg-capoeira-blue rounded-full mt-2 flex-shrink-0"></div>
-                          <span>Vivência prática seguida de reflexão</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <div className="w-2 h-2 bg-capoeira-blue rounded-full mt-2 flex-shrink-0"></div>
-                          <span>Fechamento de ciclos com rodas</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <div className="w-2 h-2 bg-capoeira-blue rounded-full mt-2 flex-shrink-0"></div>
-                          <span>Contextualização histórica e cultural</span>
-                        </li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold mb-3">Aplicação Prática:</h4>
-                      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                        <p className="text-blue-800 text-sm mb-2">
-                          <strong>Sequência Metodológica:</strong>
-                        </p>
-                        <ol className="text-blue-700 text-sm space-y-1">
-                          <li>1. Vivência da roda de capoeira</li>
-                          <li>2. Decomposição dos movimentos</li>
-                          <li>3. Prática técnica orientada</li>
-                          <li>4. Contextualização histórica</li>
-                          <li>5. Retorno à roda com compreensão ampliada</li>
-                        </ol>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="mt-6 grid md:grid-cols-3 gap-4">
-                    <div className="text-center p-4 bg-yellow-50 rounded-lg">
-                      <div className="text-2xl mb-2">🎯</div>
-                      <h5 className="font-semibold">Angola</h5>
-                      <p className="text-xs text-gray-600">
-                        Chamadas e passo a dois
-                      </p>
-                    </div>
-                    <div className="text-center p-4 bg-red-50 rounded-lg">
-                      <div className="text-2xl mb-2">⚡</div>
-                      <h5 className="font-semibold">Regional</h5>
-                      <p className="text-xs text-gray-600">
-                        Sequências e balões
-                      </p>
-                    </div>
-                    <div className="text-center p-4 bg-green-50 rounded-lg">
-                      <div className="text-2xl mb-2">🔄</div>
-                      <h5 className="font-semibold">Ciclos</h5>
-                      <p className="text-xs text-gray-600">
-                        Sempre fechados com rodas
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <CardTitle className="text-capoeira-green">
-                    Pedagogia Espacial
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 mb-4">
-                    Utilização de diferentes espaços como estratégia pedagógica:
-                    salas de aula para teoria, ginásios para prática, ambientes
-                    externos para vivências comunitárias.
-                  </p>
-                  <div className="grid md:grid-cols-3 gap-4">
-                    <div className="flex items-center gap-3 p-3 border rounded-lg">
-                      <div className="w-8 h-8 bg-blue-500 rounded text-white flex items-center justify-center text-sm">
-                        S3
-                      </div>
-                      <div>
-                        <p className="font-medium">Sala 3 DEF</p>
-                        <p className="text-xs text-gray-600">
-                          Teoria e contexto
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-3 p-3 border rounded-lg">
-                      <div className="w-8 h-8 bg-green-500 rounded text-white flex items-center justify-center text-sm">
-                        G
-                      </div>
-                      <div>
-                        <p className="font-medium">Ginásio COESPE</p>
-                        <p className="text-xs text-gray-600">Prática e rodas</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-3 p-3 border rounded-lg">
-                      <div className="w-8 h-8 bg-amber-500 rounded text-white flex items-center justify-center text-sm">
-                        E
-                      </div>
-                      <div>
-                        <p className="font-medium">Espaços Externos</p>
-                        <p className="text-xs text-gray-600">
-                          Comunidade e extensão
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </motion.section>
-
-          {/* Seminários */}
-          <motion.section
-            id="seminarios"
-            className="mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
-          >
-            <SectionHeader
-              title="Seminários de Atualização"
-              icon={<Users className="w-6 h-6" />}
-            />
-            <Card>
-              <CardHeader>
-                <CardTitle>Apresentações Multidisciplinares</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-6">
-                  Apresentações em grupos sobre diferentes aspectos da capoeira,
-                  integrando conhecimentos multidisciplinares:
-                </p>
-                <div className="grid md:grid-cols-2 gap-4">
-                  {seminars.map((seminar) => (
-                    <div
-                      key={seminar.id}
-                      className="border-l-4 border-capoeira-green pl-4"
-                    >
-                      <h4 className="font-semibold">
-                        Grupo {seminar.groupNumber} - {seminar.topic}
-                      </h4>
-                      <p className="text-sm text-gray-600">
-                        {seminar.members?.join(", ")}
-                      </p>
-                      {seminar.description && (
-                        <p className="text-xs text-gray-500 mt-1">
-                          {seminar.description}
-                        </p>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </motion.section>
-
-          {/* Cultura e Folclore */}
-          <motion.section
-            id="cultura"
-            className="mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
-          >
-            <SectionHeader
-              title="Cultura & Folclore"
-              icon={<Drum className="w-6 h-6" />}
-            />
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {[
-                {
-                  name: "Ijexá",
-                  description:
-                    "Ritmo afro-brasileiro conectado às tradições religiosas",
-                  color: "bg-orange-500",
-                },
-                {
-                  name: "Congado",
-                  description: "Manifestação cultural de origem africana",
-                  color: "bg-purple-500",
-                },
-                {
-                  name: "Maculelê",
-                  description: "Dança folclórica com bastões",
-                  color: "bg-green-500",
-                },
-                {
-                  name: "Samba de Roda",
-                  description: "Expressão musical e coreográfica tradicional",
-                  color: "bg-yellow-500",
-                },
-              ].map((item) => (
-                <Card
-                  key={item.name}
-                  className="text-center hover:shadow-lg transition-shadow"
-                >
-                  <CardContent className="pt-6">
-                    <div
-                      className={`${item.color} rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3`}
-                    >
-                      <Drum className="w-6 h-6 text-white" />
-                    </div>
-                    <h4 className="font-semibold mb-2">{item.name}</h4>
-                    <p className="text-sm text-gray-600">{item.description}</p>
                   </CardContent>
                 </Card>
               ))}
             </div>
-          </motion.section>
+          </div>
+        </section>
 
-          {/* Reflexões Pessoais */}
-          <motion.section
-            id="reflexoes"
-            className="mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.9 }}
-          >
-            <SectionHeader
-              title="Reflexões Pessoais"
-              icon={<Lightbulb className="w-6 h-6" />}
+        {/* Reflexões */}
+        <section id="reflexoes" className="py-20 px-4 lg:px-8">
+          <div className="max-w-6xl mx-auto">
+            <SectionHeader 
+              icon={Lightbulb}
+              title="Reflexões e Aprendizados"
+              subtitle="Pensamentos e descobertas ao longo da jornada acadêmica"
             />
-            <Card>
-              <CardContent className="p-6">
-                <div className="gradient-capoeira rounded-lg p-6 text-white mb-6">
-                  <h3 className="text-xl font-semibold mb-4">
-                    A Dinâmica da Capoeira Viva
-                  </h3>
-                  <p className="leading-relaxed">
-                    Durante o semestre, compreendi que a metodologia do
-                    professor em nos levar constantemente para outros espaços -
-                    diferentes salas, ginásios, ambientes externos - reflete uma
-                    verdade fundamental sobre a capoeira:{" "}
-                    <strong>
-                      ela só se mantém viva quando sai dos espaços tradicionais
-                    </strong>
-                    .
-                  </p>
-                </div>
+            
+            <div className="mt-12 grid md:grid-cols-2 gap-8">
+              {reflections.map((reflection) => (
+                <Card key={reflection.id} className="hover:shadow-lg transition-shadow">
+                  <CardHeader>
+                    <CardTitle className="text-capoeira-blue flex items-center">
+                      <Lightbulb className="h-5 w-5 mr-2 text-yellow-500" />
+                      {reflection.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-700 leading-relaxed">{reflection.content}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
 
-                <div className="grid md:grid-cols-2 gap-6">
-                  {reflections.map((reflection) => (
-                    <div
-                      key={reflection.id}
-                      className="bg-gray-50 rounded-lg p-6"
-                    >
-                      <h4 className="font-semibold text-capoeira-green mb-3">
-                        {reflection.title}
-                      </h4>
-                      <p className="text-gray-600">{reflection.content}</p>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-6 p-6 bg-capoeira-yellow bg-opacity-10 border-l-4 border-capoeira-yellow rounded-r-lg">
-                  <p className="italic text-gray-700">
-                    "A capoeira me ensinou que o conhecimento só se completa
-                    quando é transmitido. Cada roda, cada movimento ensinado,
-                    cada história compartilhada contribui para manter viva esta
-                    manifestação cultural tão rica e significativa."
+        {/* Metodologia */}
+        <section id="metodologia" className="py-20 px-4 lg:px-8 bg-gradient-to-br from-orange-100 to-red-100">
+          <div className="max-w-6xl mx-auto">
+            <SectionHeader 
+              icon={Drum}
+              title="Metodologia TGfU"
+              subtitle="Teaching Games for Understanding aplicado à Capoeira"
+            />
+            
+            <div className="mt-12 grid md:grid-cols-3 gap-8">
+              <Card className="text-center hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <div className="mx-auto w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mb-4">
+                    <Sprout className="h-8 w-8 text-white" />
+                  </div>
+                  <CardTitle>Vivência</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">
+                    Primeiro experimentamos os movimentos em contexto de jogo e roda, 
+                    compreendendo a essência antes da técnica.
                   </p>
-                </div>
-              </CardContent>
-            </Card>
-          </motion.section>
-        </main>
-      </div>
+                </CardContent>
+              </Card>
+
+              <Card className="text-center hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <div className="mx-auto w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mb-4">
+                    <BicepsFlexed className="h-8 w-8 text-white" />
+                  </div>
+                  <CardTitle>Sistematização</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">
+                    Após a vivência, refinamos a técnica e compreendemos os 
+                    fundamentos de cada movimento e situação.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="text-center hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <div className="mx-auto w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mb-4">
+                    <Drum className="h-8 w-8 text-white" />
+                  </div>
+                  <CardTitle>Aplicação</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">
+                    Fechamos cada ciclo com rodas de capoeira, aplicando todo o 
+                    conhecimento adquirido em situação real.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* Footer */}
+        <footer className="bg-gray-900 text-white py-12 px-4 lg:px-8">
+          <div className="max-w-6xl mx-auto text-center">
+            <h3 className="text-2xl font-bold mb-4">Portfólio de Capoeira</h3>
+            <p className="text-gray-400 mb-4">
+              Disciplina de Capoeira - Departamento de Educação Física
+            </p>
+            <p className="text-gray-400">
+              Universidade Federal do Rio Grande do Norte (UFRN)
+            </p>
+          </div>
+        </footer>
+      </main>
 
       {selectedImage && (
         <ImageModal
