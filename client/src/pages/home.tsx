@@ -67,9 +67,9 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 to-red-50">
-      <Sidebar onNavigate={scrollToSection} />
+      {/* Sidebar removida para landing page */}
 
-      <main className="lg:ml-64">
+      <main>
         {/* Hero Section */}
         <section
           id="hero"
