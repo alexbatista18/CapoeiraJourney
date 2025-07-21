@@ -283,7 +283,7 @@ export const allActivities: Activity[] = [
     description:
       "Primeira imagem do projeto: entrega das sementes de cabaça aos alunos, marcando o início do processo de cultivo que conecta teoria e prática. Cada estudante recebeu sementes para germinar em casa, compreendendo o ciclo completo desde o plantio até a confecção do berimbau.",
     date: "Início do semestre",
-    imageUrl: "/CapoeiraJourney/image5.jpeg",
+    imageUrl: "/CapoeiraJourney/CapoeiraJourney/image5.jpeg",
     category: "practice",
   },
   {
@@ -292,7 +292,7 @@ export const allActivities: Activity[] = [
     description:
       "Segunda imagem registrada: roda de capoeira realizada em aula no dia 21/05, fechamento do ciclo TGfU com Capoeira Angola. Momento de aplicação prática dos fundamentos aprendidos, com participação ativa de todos os estudantes na roda tradicional.",
     date: "21/05/2025",
-    imageUrl: "/CapoeiraJourney/image6.jpeg",
+    imageUrl: "/CapoeiraJourney/CapoeiraJourney/image6.jpeg",
     category: "practice",
   },
   {
@@ -301,7 +301,7 @@ export const allActivities: Activity[] = [
     description:
       "Terceira imagem: divulgação do cartaz para a roda em homenagem ao Dia dos Povos Originários. Evento organizado pelos alunos divididos em 3 grupos como atividade de reposição, reconhecendo a contribuição indígena fundamental na formação da capoeira.",
     date: "19/04/2025",
-    imageUrl: "/CapoeiraJourney/image7.jpeg",
+    imageUrl: "/CapoeiraJourney/CapoeiraJourney/image7.jpeg",
     category: "event",
   },
   {
@@ -310,7 +310,7 @@ export const allActivities: Activity[] = [
     description:
       "Quarta imagem registrada: encontro e homenagem ao Mestre Junior Orca no dia 12/06. Momento especial de conexão com a tradição, fortalecendo os laços com mestres tradicionais e compreendendo a linhagem histórica da capoeira no Rio Grande do Norte.",
     date: "12/06/2025",
-    imageUrl: "/CapoeiraJourney/image8.jpeg",
+    imageUrl: "/CapoeiraJourney/CapoeiraJourney/image8.jpeg",
     category: "event",
   },
 ];
